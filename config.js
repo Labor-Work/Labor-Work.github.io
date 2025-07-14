@@ -15,7 +15,7 @@ const CONFIG = {
         apiKey: 'YOUR_API_KEY_PLACEHOLDER',
         
         // The range of cells to fetch (adjust based on your sheet)
-        range: 'Sheet1!A:X',
+        range: 'Data1!A:X',
         
         // Refresh interval in milliseconds (1 hour = 3600000 ms)
         refreshInterval: 3600000
