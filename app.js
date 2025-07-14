@@ -116,11 +116,25 @@
                 employerName: row[CONFIG.columns.employerName] || '',
                 employeeName: row[CONFIG.columns.employeeName] || '',
                 gender: row[CONFIG.columns.gender] || '',
-                idNumber: row[CONFIG.columns.idNumber] || '',
+                foreignerId: row[CONFIG.columns.foreignerId] || '',
                 passportNumber: row[CONFIG.columns.passportNumber] || '',
                 status: row[CONFIG.columns.status] || '',
+                corporateIdOrNationalId: row[CONFIG.columns.corporateIdOrNationalId] || '',
                 applicationNo: row[CONFIG.columns.applicationNo] || '',
-                agent: row[CONFIG.columns.agent] || ''
+                agent: row[CONFIG.columns.agent] || '',
+                type: row[CONFIG.columns.type] || '',
+                actionType: row[CONFIG.columns.actionType] || '',
+                employerStatus: row[CONFIG.columns.employerStatus] || '',
+                healthCheck: row[CONFIG.columns.healthCheck] || '',
+                insuranceType: row[CONFIG.columns.insuranceType] || '',
+                jobType: row[CONFIG.columns.jobType] || '',
+                requestedDocument: row[CONFIG.columns.requestedDocument] || '',
+                healthCheckStatus: row[CONFIG.columns.healthCheckStatus] || '',
+                medicalCertStatus: row[CONFIG.columns.medicalCertStatus] || '',
+                workStatus: row[CONFIG.columns.workStatus] || '',
+                callingVisaStatus: row[CONFIG.columns.callingVisaStatus] || '',
+                visaStatus: row[CONFIG.columns.visaStatus] || '',
+                visaUpdate: row[CONFIG.columns.visaUpdate] || ''
             };
         });
         
@@ -157,14 +171,30 @@
             row.className = 'hover:bg-gray-50';
             
             row.innerHTML = `
-                <td class="px-4 py-3 text-sm">${employee.no}</td>
-                <td class="px-4 py-3 text-sm font-medium text-gray-900">${employee.employeeName}</td>
-                <td class="px-4 py-3 text-sm">${employee.gender}</td>
-                <td class="px-4 py-3 text-sm">${employee.idNumber}</td>
-                <td class="px-4 py-3 text-sm">${employee.passportNumber}</td>
-                <td class="px-4 py-3 text-sm">${employee.employerName}</td>
-                <td class="px-4 py-3 text-sm">${employee.status}</td>
-                <td class="px-4 py-3 text-sm">${employee.applicationNo}</td>
+                <td class="px-2 py-2 text-xs whitespace-nowrap">${employee.no}</td>
+                <td class="px-2 py-2 text-xs whitespace-nowrap">${employee.filename}</td>
+                <td class="px-2 py-2 text-xs whitespace-nowrap">${employee.employerName}</td>
+                <td class="px-2 py-2 text-xs font-medium text-gray-900 whitespace-nowrap">${employee.employeeName}</td>
+                <td class="px-2 py-2 text-xs whitespace-nowrap">${employee.gender}</td>
+                <td class="px-2 py-2 text-xs whitespace-nowrap">${employee.foreignerId}</td>
+                <td class="px-2 py-2 text-xs whitespace-nowrap">${employee.passportNumber}</td>
+                <td class="px-2 py-2 text-xs whitespace-nowrap">${employee.status}</td>
+                <td class="px-2 py-2 text-xs whitespace-nowrap">${employee.corporateIdOrNationalId}</td>
+                <td class="px-2 py-2 text-xs whitespace-nowrap">${employee.applicationNo}</td>
+                <td class="px-2 py-2 text-xs whitespace-nowrap">${employee.agent}</td>
+                <td class="px-2 py-2 text-xs whitespace-nowrap">${employee.type}</td>
+                <td class="px-2 py-2 text-xs whitespace-nowrap">${employee.actionType}</td>
+                <td class="px-2 py-2 text-xs whitespace-nowrap">${employee.employerStatus}</td>
+                <td class="px-2 py-2 text-xs whitespace-nowrap">${employee.healthCheck}</td>
+                <td class="px-2 py-2 text-xs whitespace-nowrap">${employee.insuranceType}</td>
+                <td class="px-2 py-2 text-xs whitespace-nowrap">${employee.jobType}</td>
+                <td class="px-2 py-2 text-xs whitespace-nowrap">${employee.requestedDocument}</td>
+                <td class="px-2 py-2 text-xs whitespace-nowrap">${employee.healthCheckStatus}</td>
+                <td class="px-2 py-2 text-xs whitespace-nowrap">${employee.medicalCertStatus}</td>
+                <td class="px-2 py-2 text-xs whitespace-nowrap">${employee.workStatus}</td>
+                <td class="px-2 py-2 text-xs whitespace-nowrap">${employee.callingVisaStatus}</td>
+                <td class="px-2 py-2 text-xs whitespace-nowrap">${employee.visaStatus}</td>
+                <td class="px-2 py-2 text-xs whitespace-nowrap">${employee.visaUpdate}</td>
             `;
             
             elements.tableBody.appendChild(row);
@@ -185,10 +215,14 @@
         const searchResults = filteredData.filter(employee => {
             return (
                 employee.employeeName.toLowerCase().includes(searchTerm) ||
-                employee.idNumber.toLowerCase().includes(searchTerm) ||
+                employee.foreignerId.toLowerCase().includes(searchTerm) ||
                 employee.passportNumber.toLowerCase().includes(searchTerm) ||
                 employee.employerName.toLowerCase().includes(searchTerm) ||
-                employee.applicationNo.toLowerCase().includes(searchTerm)
+                employee.applicationNo.toLowerCase().includes(searchTerm) ||
+                employee.corporateIdOrNationalId.toLowerCase().includes(searchTerm) ||
+                employee.filename.toLowerCase().includes(searchTerm) ||
+                employee.type.toLowerCase().includes(searchTerm) ||
+                employee.jobType.toLowerCase().includes(searchTerm)
             );
         });
         
